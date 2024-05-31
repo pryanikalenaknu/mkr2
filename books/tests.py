@@ -43,6 +43,6 @@ class ModelTests(TestCase):
         response = self.client.get("/authors/author_detail/1")
         self.assertEqual(response.status_code, 200)
 
-    def test_authors_view(self):
-        response = self.client.get(reverse("books:authors"))
+    def test_book_detail_view(self):
+        response = self.client.get("/books/book_detail/1")
         self.assertEqual(response.status_code, 200)
