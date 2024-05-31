@@ -17,3 +17,12 @@ class ModelTests(TestCase):
     def test_author_str(self):
         author = Author.objects.get(id=1)
         self.assertEqual(str(author), 'Test Author')
+
+    def test_book_str(self):
+        book = Book.objects.get(id=1)
+        self.assertEqual(str(book), 'Test Book')
+
+    def test_book_authors(self):
+        book = Book.objects.get(id=1)
+        authors = book.authors.all()
+        self.assertTrue(authors.exists())
