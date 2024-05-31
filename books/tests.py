@@ -3,6 +3,7 @@ from .models import Author, Book
 from datetime import date
 from django.core.files.uploadedfile import SimpleUploadedFile
 
+from books.models import Book, Author
 
 class ModelTests(TestCase):
 
@@ -36,3 +37,11 @@ class ModelTests(TestCase):
         book = Book.objects.get(id=1)
         price = book.price
         self.assertEqual(price, 10.00)
+
+    def test_author_detail_view(self):
+        response = self.client.get("/authors/author_detail/1")
+        self.assertEqual(response.status_code, 200)
+
+    def test_authors_view(self):
+        response = self.client.get(reverse("books:authors"))
+        self.assertEqual(response.status_code, 200)
