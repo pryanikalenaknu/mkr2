@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from books.models import Book, Author
 
+def book_order(request):
+    books = Book.objects.all()
+    context = {'books': books}
+    return render(request, 'book_list_ordered.html', context)
+
 def book_list(request):
     books = Book.objects.all()
     context = {'books': books}
