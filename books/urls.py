@@ -5,5 +5,6 @@ from books import views
 app_name = 'books'
 
 urlpatterns = [
-    path('', views.books, name='books')
+    path('books', views.books, name='books'),
+    path('authors', views.authors, name='authors')
 ]
