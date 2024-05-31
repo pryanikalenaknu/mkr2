@@ -26,3 +26,13 @@ class ModelTests(TestCase):
         book = Book.objects.get(id=1)
         authors = book.authors.all()
         self.assertTrue(authors.exists())
+
+    def test_book_publication_date(self):
+        book = Book.objects.get(id=1)
+        publication_date = book.publication_date
+        self.assertEqual(publication_date, date.today())
+
+    def test_book_price(self):
+        book = Book.objects.get(id=1)
+        price = book.price
+        self.assertEqual(price, 10.00)
